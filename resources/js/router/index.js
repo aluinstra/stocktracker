@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 import Account from "../pages/Account.vue";
-import CreateStock from "../pages/StockImport.vue";
+import CreateStock from "../pages/CreateStock.vue";
 
 Vue.use(VueRouter);
 

@@ -16,9 +16,7 @@ class CreateStocksTable extends Migration
         Schema::create('stocks', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->float('purchasePrice');
-            $table->date('dateOfPurchase');
-            $table->float('currentProfit');
+            $table->float('tickerSymbol');
             $table->boolean('active')->default(true);
             $table->timestamps();
         });

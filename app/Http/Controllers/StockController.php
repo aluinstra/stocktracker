@@ -37,9 +37,7 @@ class StockController extends Controller
     {
         Stock::create(request()->validate([
             'name' => ['required', 'min:2'],
-            'purchasePrice' => ['required', 'numeric', 'min:1'],
-            'dateOfPurchase' => ['date_format:m/d/Y'],
-            'currentProfit' => ['required', 'numeric', 'min:1'],
+            'tickerSymbol' => ['required', 'min:2']
         ]));
     }
 
