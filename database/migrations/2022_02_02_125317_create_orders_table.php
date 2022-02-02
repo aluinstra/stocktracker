@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStocksTable extends Migration
+class CreateOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateStocksTable extends Migration
      */
     public function up()
     {
-        Schema::create('stocks', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('ticker_symbol');
-            $table->string('ISIN');
-            $table->boolean('active')->default(true);
+            $table->foreignId('stock_id');
+            $table->string('exchange');
+            $table->integer('stock_amount');
+            $table->float('total_price');
+            $table->date('order_date');
+            $table->float('trading_fee');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class CreateStocksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stocks');
+        Schema::dropIfExists('orders');
     }
 }

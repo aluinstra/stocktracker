@@ -18,7 +18,16 @@
                             <input
                                 type="text"
                                 :placeholder="tickerSymbol_plcHolder"
-                                v-model="stockData.tickerSymbol"
+                                v-model="stockData.ticker_symbol"
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input
+                                type="text"
+                                :placeholder="isinNumber_plcHolder"
+                                v-model="stockData.ISIN"
                             />
                         </td>
                     </tr>
@@ -35,10 +44,12 @@ export default {
         return {
             stockData: {
                 name: "",
-                tickerSymbol: ""
+                ticker_symbol: "",
+                ISIN: ""
             },
             name_plcHolder: "company name",
-            tickerSymbol_plcHolder: "ticker symbol"
+            tickerSymbol_plcHolder: "ticker symbol",
+            isinNumber_plcHolder: "ISIN number"
         };
     },
     methods: {

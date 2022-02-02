@@ -30,7 +30,7 @@ export const stocksModule = {
             commit("SET_ALL", data);
         },
         async Create({ commit }, payload) {
-            const { data } = await axios.post("api/stocks/create", payload);
+            const { data } = await axios.post("/api/stocks/create", payload);
             commit("SET_ALL", data);
         }
     }

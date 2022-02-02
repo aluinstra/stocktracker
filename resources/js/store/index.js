@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import { stocksModule } from "./modules/stocks";
 
 Vue.use(Vuex);
 
@@ -7,5 +8,6 @@ export default new Vuex.Store({
     state: {},
     mutations: {},
     getters: {},
-    actions: {}
+    actions: {},
+    modules: { stocksModule }
 });
