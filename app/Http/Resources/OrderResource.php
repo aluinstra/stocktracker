@@ -17,10 +17,11 @@ class StockResource extends JsonResource
         return [
             'id' => $this->id,
             'stock_id' => $this->stock_id,
-            'exchange' => $this->exchange,
-            'amount' => $this->amount,
-            'total_amount' => $this->total_amount,
-            'date' => $this->date,
+            'trading_exchange' => $this->trading_exchange,
+            'stock_amount' => $this->amount,
+            'total_price' => $this->total_amount,
+            'trading_fee' => $this->trading_fee,
+            'execution_date' => $this->date,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

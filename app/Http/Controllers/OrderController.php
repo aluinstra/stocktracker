@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Order;
 
 class OrderController extends Controller
 {
@@ -34,7 +35,14 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Order::create(request()->validate([
+            'stock_id' => ['required', 'min:1'],
+            'trading_exchange' => ['required'],
+            'stock_amount' => ['required', 'min:1'],
+            'total_price' => ['required', 'min:2'],
+            'trading_fee' => ['required', 'min:2'],
+            'execution_date' => ['required']
+        ]));
     }
 
     /**

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\StockController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 // get all stocks
-Route::get('stocks', [StockController::class, 'index']);
+Route::get('/stocks', [StockController::class, 'index']);
 // create new stock item
-Route::post('stocks/create', [StockController::class, 'store']);
+Route::post('/stocks/create', [StockController::class, 'store']);
+
+// get all orders
+Route::get('/orders', [OrderController::class, 'index']);
+//create new order input
+Route::post('/orders/create', [OrderController::class, 'store']);

@@ -16,10 +16,10 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('stock_id');
-            $table->string('exchange');
+            $table->integer('trading_exchange');
             $table->integer('stock_amount');
             $table->float('total_price');
-            $table->date('order_date');
+            $table->date('execution_date');
             $table->float('trading_fee');
             $table->timestamps();
         });
