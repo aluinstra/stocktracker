@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\TradingExchange;
 use App\Models\Stock;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,11 @@ class StockController extends Controller
      */
     public function index()
     {
-        //
+
+        return response()->json([
+            'stocks' => Stock::all(),
+            'exchanges' => TradingExchange::getKeys()
+        ]);
     }
 
     /**

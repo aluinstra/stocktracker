@@ -89,6 +89,9 @@ export default {
             console.log(this.orderData);
             this.$router.push({ name: "Account" });
         }
+    },
+    mounted() {
+        this.$store.dispatch("stocksModule/setAll");
     }
 };
 </script>
