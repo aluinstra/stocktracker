@@ -15,11 +15,18 @@
                     </tr>
                     <tr>
                         <td>
-                            <input
-                                type="text"
-                                :placeholder="trading_exchange_plcHolder"
-                                v-model="orderData.trading_exchange"
-                            />
+                            <div>
+                                <multiselect
+                                    v-model="selected_Exchange"
+                                    :options="trading_Exchanges"
+                                    :multiple="false"
+                                    :close-on-select="false"
+                                    :clear-on-select="false"
+                                    :preserve-search="true"
+                                    placeholder="Pick Exchange"
+                                >
+                                </multiselect>
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -65,7 +72,9 @@
 </template>
 
 <script>
+import Multiselect from "vue-multiselect";
 export default {
+    components: { Multiselect },
     data() {
         return {
             orderData: {
@@ -80,7 +89,9 @@ export default {
             trading_exchange_plcHolder: "Choose exchange",
             stock_amount_plcHolder: "Pick amount",
             total_price_plcHolder: "Total price",
-            trading_fee_plcHolder: "Trading fee"
+            trading_fee_plcHolder: "Trading fee",
+            trading_Exchanges: ["EAM", "NSY", , "NDQ"],
+            selected_Exchange: ""
         };
     },
     methods: {

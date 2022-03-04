@@ -2,8 +2,10 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 import Account from "../pages/Account.vue";
-import CreateStock from "../pages/StockCreate.vue";
-import CreateOrder from "../pages/OrderCreate.vue";
+import StockCreate from "../pages/StockCreate.vue";
+import StockIndex from "../pages/StockIndex.vue";
+
+import OrderCreate from "../pages/OrderCreate.vue";
 
 Vue.use(VueRouter);
 
@@ -17,12 +19,17 @@ export default new VueRouter({
         {
             path: "/stock/create",
             name: "StockCreate",
-            component: CreateStock
+            component: StockCreate
+        },
+        {
+            path: "/stock/index",
+            name: "StockIndex",
+            component: StockIndex
         },
         {
             path: "/order/create",
             name: "OrderCreate",
-            component: CreateOrder
+            component: OrderCreate
         }
     ]
 });
