@@ -76,7 +76,12 @@ class StockController extends Controller
      */
     public function update(Request $request, Stock $stock)
     {
-        //
+        $stock->update(request()->validate([
+            'name' => ['required', 'min:2'],
+            'ticker_symbol' => ['required', 'min:1'],
+            'ISIN' => ['required', 'between:11,13']
+
+        ]));
     }
 
     /**
@@ -87,6 +92,8 @@ class StockController extends Controller
      */
     public function destroy(Stock $stock)
     {
-        //
+        $stock->delete();
+
+        return 204;
     }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\TradingExchange;
+use App\Http\Resources\OrderResource;
 use Illuminate\Http\Request;
 use App\Models\Order;
 
@@ -14,7 +16,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        return OrderResource::collection(Order::all());
     }
 
     /**
@@ -35,14 +37,22 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        Order::create(request()->validate([
+        $trading_exchange = TradingExchange::fromKey($request->trading_exchange);
+
+        $validated = $request->validate([
             'stock_id' => ['required', 'min:1'],
             'trading_exchange' => ['required'],
             'stock_amount' => ['required', 'min:1'],
             'total_price' => ['required', 'min:2'],
             'trading_fee' => ['required', 'min:2'],
             'execution_date' => ['required']
-        ]));
+        ]);
+
+        $validated['trading_exchange'] = $trading_exchange;
+
+        Order::create($validated);
+
+        return OrderResource::collection(Order::all());
     }
 
     /**
@@ -74,9 +84,24 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Order $order)
     {
-        //
+        $trading_exchange = TradingExchange::fromKey($request->trading_exchange);
+
+        $validated = $request->validate([
+            'stock_id' => ['required', 'min:1'],
+            'trading_exchange' => ['required'],
+            'stock_amount' => ['required', 'min:1'],
+            'total_price' => ['required', 'min:2'],
+            'trading_fee' => ['required', 'min:2'],
+            'execution_date' => ['required']
+        ]);
+
+        $validated['trading_exchange'] = $trading_exchange;
+
+        $order->update($validated);
+
+        return OrderResource::collection(Order::all());
     }
 
     /**
@@ -85,8 +110,10 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Order $order)
     {
-        //
+        $order->delete();
+
+        return 204;
     }
 }

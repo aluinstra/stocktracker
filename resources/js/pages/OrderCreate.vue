@@ -17,7 +17,7 @@
                         <td>
                             <div>
                                 <multiselect
-                                    v-model="selected_Exchange"
+                                    v-model="orderData.trading_exchange"
                                     :options="trading_Exchanges"
                                     :multiple="false"
                                     :close-on-select="false"
@@ -98,7 +98,7 @@ export default {
         async createOrder() {
             await this.$store.dispatch("ordersModule/Create", this.orderData);
             console.log(this.orderData);
-            this.$router.push({ name: "Account" });
+            this.$router.push({ name: "OrderIndex" });
         }
     },
     mounted() {

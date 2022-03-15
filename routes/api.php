@@ -24,8 +24,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/stocks', [StockController::class, 'index']);
 // create new stock item
 Route::post('/stocks/create', [StockController::class, 'store']);
+// delete stock
+Route::delete('stocks/{stock}', [StockController::class, 'destroy']);
+// edit stock item
+Route::post('stocks/{stock}', [StockController::class, 'update']);
+
 
 // get all orders
 Route::get('/orders', [OrderController::class, 'index']);
 //create new order input
 Route::post('/orders/create', [OrderController::class, 'store']);
+// delete order
+Route::delete('orders/{order}', [OrderController::class, 'destroy']);
+// edit order
+Route::post('orders/{order}', [OrderController::class, 'update']);
