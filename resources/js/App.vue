@@ -2,18 +2,21 @@
     <div>
         <NavBar />
         <SideBar />
+        <Footer />
         <router-view />
     </div>
 </template>
 
 <script>
-import SideBar from "../js/components/SideBar.vue";
+import SideBar from "./components/SideBar_.vue";
 import NavBar from "../js/components/Nav.vue";
+import Footer from "../js/components/Footer.vue";
 
 export default {
     components: {
         NavBar,
-        SideBar
+        SideBar,
+        Footer
     }
 };
 </script>
