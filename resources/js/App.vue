@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import SideBar from "./components/SideBar_.vue";
+import SideBar from "./components/SideBar.vue";
 import NavBar from "../js/components/Nav.vue";
 import Footer from "../js/components/Footer.vue";
 
