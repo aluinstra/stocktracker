@@ -1,73 +1,85 @@
 <template>
     <div>
-        <h1>Create Order</h1>
-        <div>
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <td>
-                            <input
-                                type="text"
-                                :placeholder="stock_id_plcHolder"
-                                v-model="orderData.stock_id"
-                            />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div>
-                                <multiselect
-                                    v-model="orderData.trading_exchange"
-                                    :options="trading_Exchanges"
-                                    :multiple="false"
-                                    :close-on-select="false"
-                                    :clear-on-select="false"
-                                    :preserve-search="true"
-                                    placeholder="Pick Exchange"
-                                >
-                                </multiselect>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input
-                                type="text"
-                                :placeholder="stock_amount_plcHolder"
-                                v-model="orderData.stock_amount"
-                            />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input
-                                type="text"
-                                :placeholder="total_price_plcHolder"
-                                v-model="orderData.total_price"
-                            />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input
-                                type="text"
-                                :placeholder="trading_fee_plcHolder"
-                                v-model="orderData.trading_fee"
-                            />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input
-                                type="date"
-                                v-model="orderData.execution_date"
-                            />
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="row my-4">
+            <div class="col-12 col-xl-12 col-lg-3 mb-4 mb-lg-0">
+                <div class="card">
+                    <h5 class="card-header">Order Create</h5>
+                    <div class="card-body">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input
+                                            type="text"
+                                            :placeholder="stock_id_plcHolder"
+                                            v-model="orderData.stock_id"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <multiselect
+                                                v-model="
+                                                    orderData.trading_exchange
+                                                "
+                                                :options="trading_Exchanges"
+                                                :multiple="false"
+                                                :close-on-select="false"
+                                                :clear-on-select="false"
+                                                :preserve-search="true"
+                                                placeholder="Pick Exchange"
+                                            >
+                                            </multiselect>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input
+                                            type="text"
+                                            :placeholder="
+                                                stock_amount_plcHolder
+                                            "
+                                            v-model="orderData.stock_amount"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input
+                                            type="text"
+                                            :placeholder="total_price_plcHolder"
+                                            v-model="orderData.total_price"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input
+                                            type="text"
+                                            :placeholder="trading_fee_plcHolder"
+                                            v-model="orderData.trading_fee"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input
+                                            type="date"
+                                            v-model="orderData.execution_date"
+                                        />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
-        <button type="button" @click="createOrder">Submit</button>
+        <div>
+            <button type="button" @click="createOrder">Submit</button>
+        </div>
     </div>
 </template>
 

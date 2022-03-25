@@ -21,8 +21,11 @@ class StockFactory extends Factory
      */
     public function definition()
     {
+
         return [
-            //
+            'name' => $this->faker->company(),
+            'ticker_symbol' => $this->faker->randomLetter(4, false),
+            'ISIN' => $this->faker->randomNumber(12, true)
         ];
     }
 }

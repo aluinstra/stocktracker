@@ -1,40 +1,50 @@
 <template>
     <div>
-        <h1>Create a stock</h1>
-        <div>
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <td>
-                            <input
-                                type="text"
-                                :placeholder="name_plcHolder"
-                                v-model="stockData.name"
-                            />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input
-                                type="text"
-                                :placeholder="tickerSymbol_plcHolder"
-                                v-model="stockData.ticker_symbol"
-                            />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input
-                                type="text"
-                                :placeholder="isinNumber_plcHolder"
-                                v-model="stockData.ISIN"
-                            />
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="row my-4">
+            <div class="col-12 col-xl-12 col-lg-3 mb-4 mb-lg-0">
+                <div class="card">
+                    <h5 class="card-header">Stock Create</h5>
+                    <div class="card-body">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input
+                                            type="text"
+                                            :placeholder="name_plcHolder"
+                                            v-model="stockData.name"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input
+                                            type="text"
+                                            :placeholder="
+                                                tickerSymbol_plcHolder
+                                            "
+                                            v-model="stockData.ticker_symbol"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input
+                                            type="text"
+                                            :placeholder="isinNumber_plcHolder"
+                                            v-model="stockData.ISIN"
+                                        />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
-        <button type="button" @click="createStock">Submit</button>
+        <div>
+            <button type="button" @click="createStock">Submit</button>
+        </div>
     </div>
 </template>
 

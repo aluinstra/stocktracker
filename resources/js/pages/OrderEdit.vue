@@ -1,67 +1,76 @@
 <template>
     <div>
-        <h1>Edit {{ order.id }}</h1>
-        <div>
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <td>
-                            {{ orderData.id }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="text" v-model="orderData.stock_id" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <multiselect
-                                v-model="orderData.trading_exchange"
-                                :options="trading_Exchanges"
-                                :multiple="false"
-                                :close-on-select="false"
-                                :clear-on-select="false"
-                                :preserve-search="true"
-                                placeholder="Pick some"
-                            >
-                            </multiselect>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input
-                                type="text"
-                                v-model="orderData.stock_amount"
-                            />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input
-                                type="text"
-                                v-model="orderData.total_price"
-                            />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input
-                                type="text"
-                                v-model="orderData.trading_fee"
-                            />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input
-                                type="text"
-                                v-model="orderData.execution_date"
-                            />
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="row my-4">
+            <div class="col-12 col-xl-12 col-lg-3 mb-4 mb-lg-0">
+                <div class="card">
+                    <h5 class="card-header">Order Edit {{ order.id }}</h5>
+                    <div class="card-body">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        {{ orderData.id }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input
+                                            type="text"
+                                            v-model="orderData.stock_id"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <multiselect
+                                            v-model="orderData.trading_exchange"
+                                            :options="trading_Exchanges"
+                                            :multiple="false"
+                                            :close-on-select="false"
+                                            :clear-on-select="false"
+                                            :preserve-search="true"
+                                            placeholder="Pick some"
+                                        >
+                                        </multiselect>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input
+                                            type="text"
+                                            v-model="orderData.stock_amount"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input
+                                            type="text"
+                                            v-model="orderData.total_price"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input
+                                            type="text"
+                                            v-model="orderData.trading_fee"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input
+                                            type="text"
+                                            v-model="orderData.execution_date"
+                                        />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
         <div>
             <button type="button" @click="submitEditing()">

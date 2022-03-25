@@ -1,34 +1,46 @@
 <template>
     <div>
-        <h1>Edit {{ stock.name }}</h1>
-        <div>
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <td>
-                            {{ stockData.id }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="text" v-model="stockData.name" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input
-                                type="text"
-                                v-model="stockData.ticker_symbol"
-                            />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="text" v-model="stockData.ISIN" />
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="row my-4">
+            <div class="col-12 col-xl-12 col-lg-3 mb-4 mb-lg-0">
+                <div class="card">
+                    <h5 class="card-header">Stock edit {{ stock.name }}</h5>
+                    <div class="card-body">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        {{ stockData.id }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input
+                                            type="text"
+                                            v-model="stockData.name"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input
+                                            type="text"
+                                            v-model="stockData.ticker_symbol"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input
+                                            type="text"
+                                            v-model="stockData.ISIN"
+                                        />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
         <div>
             <button type="button" @click="submitEditing()">

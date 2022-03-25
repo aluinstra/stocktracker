@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import SideBar from "../components/SideBar.vue";
+import SideBar from "../js/components/SideBar.vue";
 import NavBar from "../js/components/Nav.vue";
 import Footer from "../js/components/Footer.vue";
 

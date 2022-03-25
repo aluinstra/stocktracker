@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Stock;
 use Illuminate\Database\Seeder;
 
-class StockSeeder extends Seeder
+class OrderSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +13,6 @@ class StockSeeder extends Seeder
      */
     public function run()
     {
-        $stocks = Stock::factory(10)->create();
+        //
     }
 }
