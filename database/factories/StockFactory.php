@@ -24,8 +24,8 @@ class StockFactory extends Factory
 
         return [
             'name' => $this->faker->company(),
-            'ticker_symbol' => $this->faker->randomLetter(4, false),
-            'ISIN' => $this->faker->randomNumber(12, true)
+            'ticker_symbol' => $this->faker->lexify('????'),
+            'ISIN' => $this->faker->randomNumber(8, true) . $this->faker->randomNumber(4, true)
         ];
     }
 }

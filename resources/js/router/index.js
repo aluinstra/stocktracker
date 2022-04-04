@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-import Account from "../pages/Account.vue";
+import DashBoard from "../pages/DashBoard.vue";
 import StockIndex from "../pages/StockIndex.vue";
 import StockCreate from "../pages/StockCreate.vue";
 import StockShow from "../pages/StockShow.vue";
@@ -18,8 +18,8 @@ export default new VueRouter({
     routes: [
         {
             path: "/",
-            name: "Account",
-            component: Account
+            name: "DashBoard",
+            component: DashBoard
         },
         {
             path: "/stock/create",

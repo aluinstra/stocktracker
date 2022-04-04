@@ -11,7 +11,7 @@
                                     <th>id</th>
                                     <th>Company</th>
                                     <th>Trading exchange</th>
-                                    <th>Ticker symbol</th>
+                                    <th>Total amount</th>
                                     <th>ISIN</th>
                                     <th>Show</th>
                                     <th>Delete</th>
@@ -22,7 +22,7 @@
                                     <td>{{ stock.id }}</td>
                                     <td>{{ stock.name }}</td>
                                     <td>{{ stock.trading_exchange }}</td>
-                                    <td>{{ stock.ticker_symbol }}</td>
+                                    <td>{{ totalAmount(stock.id) }}</td>
                                     <td>{{ stock.ISIN }}</td>
                                     <td>
                                         <button
@@ -56,6 +56,10 @@
 <script>
 export default {
     methods: {
+        totalAmount(stock_id) {
+            const data = this.$store.getters["ordersModule/getAll"];
+            console.log(data);
+        },
         showStock(stockId) {
             return this.$router.push({
                 name: "StockShow",
@@ -74,6 +78,19 @@ export default {
     },
     mounted() {
         this.$store.dispatch("stocksModule/setAll");
+        this.$store.dispatch("ordersModule/setAll");
     }
 };
 </script>
+
+<!-- <script>
+import StockIndex from "./StockIndex.vue";
+export default {
+    components: {
+        StockIndex
+    }
+};
+</script> -->
+
+//
+https://github.com/themesberg/simple-bootstrap-5-dashboard/blob/master/README.md

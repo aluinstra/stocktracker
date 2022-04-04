@@ -4,9 +4,9 @@
             <div
                 class="d-flex col-12 col-md-3 col-lg-2 mb-2 mb-lg-0 flex-wrap flex-md-nowrap justify-content-between"
             >
-                <a class="navbar-brand" href="#">
-                    Simple Dashboard
-                </a>
+                <router-link class="navbar-brand" :to="{ name: 'DashBoard' }"
+                    >DashBoard</router-link
+                >
                 <button
                     class="navbar-toggler d-md-none collapsed mb-3"
                     type="button"

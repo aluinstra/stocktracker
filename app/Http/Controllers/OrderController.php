@@ -39,6 +39,8 @@ class OrderController extends Controller
     {
         $trading_exchange = TradingExchange::fromKey($request->trading_exchange);
 
+        dd($trading_exchange);
+
         $validated = $request->validate([
             'stock_id' => ['required', 'min:1'],
             'trading_exchange' => ['required'],
