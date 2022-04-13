@@ -12,7 +12,7 @@
                                     <th>Company</th>
                                     <th>Trading exchange</th>
                                     <th>Total amount</th>
-                                    <th>ISIN</th>
+                                    <th>Value</th>
                                     <th>Show</th>
                                     <th>Delete</th>
                                 </tr>
@@ -23,7 +23,7 @@
                                     <td>{{ stock.name }}</td>
                                     <td>{{ stock.trading_exchange }}</td>
                                     <td>{{ totalAmount(stock.id) }}</td>
-                                    <td>{{ stock.ISIN }}</td>
+                                    <td>{{ calcValue(stock.id) }}</td>
                                     <td>
                                         <button
                                             type="submit"
@@ -58,7 +58,28 @@ export default {
     methods: {
         totalAmount(stock_id) {
             const data = this.$store.getters["ordersModule/getAll"];
-            console.log(data);
+            let amount = 0;
+            data.forEach(element => {
+                if (element.stock_id == stock_id) {
+                    amount += element.stock_amount;
+                }
+            });
+            return amount;
+        },
+        calcValue(stock_id) {
+            const data = this.$store.getters["ordersModule/getAll"];
+            let value = 0;
+            data.forEach(element => {
+                console.log(element.total_value);
+                if (element.stock_id == stock_id) {
+                    value += element.total_price;
+                }
+            });
+            return this.round(value);
+        },
+        round(num) {
+            var m = Number((Math.abs(num) * 100).toPrecision(15));
+            return (Math.round(m) / 100) * Math.sign(num);
         },
         showStock(stockId) {
             return this.$router.push({

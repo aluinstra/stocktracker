@@ -15,6 +15,13 @@
                         >Order Index</router-link
                     >
                 </li>
+                <li class="nav-item">
+                    <router-link
+                        class="ms-2"
+                        :to="{ name: 'PortfolioGrowthChart' }"
+                        >Growth Chart</router-link
+                    >
+                </li>
             </ul>
         </div>
     </nav>

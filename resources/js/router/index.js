@@ -12,6 +12,8 @@ import OrderCreate from "../pages/OrderCreate.vue";
 import OrderShow from "../pages/OrderShow.vue";
 import OrderEdit from "../pages/OrderEdit.vue";
 
+import PortfolioGrowthChart from "../pages/charts/PortfolioGrowth.vue";
+
 Vue.use(VueRouter);
 
 export default new VueRouter({
@@ -60,6 +62,11 @@ export default new VueRouter({
             path: "/order/:id/edit",
             name: "OrderEdit",
             component: OrderEdit
+        },
+        {
+            path: "/charts/portfolio",
+            name: " ",
+            component: PortfolioGrowthChart
         }
     ]
 });
