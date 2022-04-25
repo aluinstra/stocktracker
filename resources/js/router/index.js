@@ -65,7 +65,7 @@ export default new VueRouter({
         },
         {
             path: "/charts/portfolio",
-            name: " ",
+            name: "PortfolioGrowthChart",
             component: PortfolioGrowthChart
         }
     ]
