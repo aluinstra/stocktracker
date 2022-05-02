@@ -8,14 +8,40 @@
 import Chart from "chart.js/auto";
 
 export default {
-    methods: {
-        capitalAccumulation() {
+    computed: {
+        labels() {
             let accumulatedWealth = 0;
+            let executionDates = new Array();
+            let labels = new Array();
+            let prices = new Array();
+
             const data = this.$store.getters["ordersModule/getAll"];
 
             data.forEach(element => {
-                accumulatedWealth += element.stock_amount;
+                let year = element.execution_date.substring(0, 4);
+                accumulatedWealth += element.total_price;
+                prices.push(accumulatedWealth);
+                executionDates.push(element.execution_date);
+                if (!labels.includes(year)) {
+                    labels.push(year);
+                    // console.log(year);
+                }
             });
+            // fill in intermediate years, because of years without action
+            return this.fillWithoutGaps(labels);
+        }
+    },
+    methods: {
+        fillWithoutGaps(labels) {
+            const min = Math.min(...labels);
+            const max = Math.max(...labels);
+            console.log(max);
+            const years = new Array();
+            for (let i = min; i <= max; i++) {
+                years.push(i);
+            }
+            console.log(years);
+            return years;
         }
     },
     mounted() {
@@ -26,12 +52,12 @@ export default {
         const myChart = new Chart(ctx, {
             type: "line",
             data: {
-                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                labels: this.labels,
                 datasets: [
                     {
                         label: "# of Votes",
-                        // data: [12, 19, 3, 5, 2, 3],
-                        data: this.capitalAccumulation(),
+                        data: [12, 19, 3, 5, 2, 3, 18],
+                        // data: this.capitalAccumulation(),
                         backgroundColor: ["rgba(255, 99, 132, 0.2)"],
                         borderColor: ["rgba(255, 99, 132, 1)"],
                         borderWidth: 1
